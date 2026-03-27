@@ -60,7 +60,6 @@ const HeartIcon = () => (
 
 export default function Hero() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    const [activeSection, setActiveSection] = useState('home');
 
     useEffect(() => {
         function handleMouseMove(e) {
@@ -68,55 +67,52 @@ export default function Hero() {
         }
 
         window.addEventListener("mousemove", handleMouseMove);
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
-                    }
-                });
-            },
-            { threshold: 0.5 }
-        );
-
-        const sections = ['home', 'about', 'experience', 'projects', 'contact'];
-        sections.forEach((section) => {
-            const element = document.getElementById(section);
-            if (element) observer.observe(element);
-        });
-
-        return () => {
-            window.removeEventListener("mousemove", handleMouseMove);
-            observer.disconnect();
-        };
+        return () => window.removeEventListener("mousemove", handleMouseMove);
     }, []);
 
-    const developerData = {
-        name: 'Scarlett Itzel',
-        occupation: 'Information Technology Engineering student',
-        role: 'Full-Stack Dev',
-        location: 'Mexico',
-        passion: 'Building web solutions'
+    // Función para scroll suave (debe estar definida antes de usarse)
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
     };
 
-    const skills = ['HTML', 'CSS', 'React', 'Node', 'Figma', 'FastApi', 'PHP', 'MySQL'];
+    const developerData = {
+        name: 'Scarlett Itzel Xochicale Flores',
+        occupation: 'Ingeniería en Tecnologías de la Información',
+        role: 'Desarrolladora Full-Stack',
+        location: 'Puebla, México',
+        passion: 'Construyendo soluciones web innovadoras'
+    };
+
+    const skills = ['HTML', 'CSS', 'React', 'Node.js', 'Figma', 'FastAPI', 'PHP', 'MySQL'];
 
     const projects = [
         {
             title: 'Ducati Showcase',
-            description: 'A frontend web application built with Angular to explore component-based architecture, routing, and responsive design inspired by the Ducati brand.',
+            description: 'Aplicación web frontend construida con Angular para explorar arquitectura basada en componentes, enrutamiento y diseño responsivo inspirado en la marca Ducati.',
             tech: ['Angular', 'SCSS'],
             image: '🏍️'
         },
     ];
 
+    const focusAreas = [
+        'Desarrollo Web',
+        'Soluciones Full-Stack',
+        'Diseño UI/UX',
+        'Desarrollo de APIs',
+        'Diseño de Bases de Datos',
+        'Servicios Cloud'
+    ];
+
     return (
         <>
-            {/* Navigation Bar */}
-
             {/* Home Section */}
-            <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+            <section id="inicio" className="relative min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
                 {/* Efecto de gradiente que sigue al mouse */}
                 <div
                     className="absolute inset-0 pointer-events-none"
@@ -143,63 +139,63 @@ export default function Hero() {
 
                             {/* Título principal */}
                             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4">
-                                Hello, I'm
+                                Hola, soy
                                 <br />
-                                <span className="bg-linear-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
+                                <span className="bg-linear-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent bg-size[length:200%] animate-gradient">
                                     Scarlett Itzel
                                 </span>
                             </h1>
 
                             {/* Rol */}
                             <div className="text-2xl sm:text-3xl text-gray-300 mb-4">
-                                Full-Stack Developer
+                                Desarrolladora Full-Stack
                             </div>
 
                             {/* Descripción */}
                             <p className="text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-                                I craft seamless digital experiences through clean code and innovative design.
-                                Specializing in modern web technologies and scalable solutions.
+                                Desarrollo experiencias digitales modernas con código limpio y diseño innovador. 
+                                Especializada en tecnologías web actuales y soluciones escalables.
                             </p>
 
                             {/* Botones de acción */}
                             <div className="flex gap-4 justify-center lg:justify-start mb-8">
                                 <button
-                                    onClick={() => scrollToSection('contact')}
-                                    className="bg-gradient from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 rounded-lg transition-all transform hover:scale-105 shadow-lg"
+                                    onClick={() => scrollToSection('contacto')}
+                                    className="bg-linear-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 rounded-lg transition-all transform hover:scale-105 shadow-lg"
                                 >
-                                    Get In Touch
+                                    Contáctame
                                 </button>
                                 <button
-                                    onClick={() => scrollToSection('projects')}
+                                    onClick={() => scrollToSection('proyectos')}
                                     className="border border-blue-400 text-blue-400 hover:bg-blue-400/10 px-8 py-3 rounded-lg transition-all transform hover:scale-105"
                                 >
-                                    View My Work
+                                    Ver proyectos
                                 </button>
                             </div>
 
-                            {/* Stats o información adicional (opcional) */}
+                            {/* Stats */}
                             <div className="flex gap-6 justify-center lg:justify-start">
                                 <div>
                                     <div className="text-2xl font-bold text-white">2+</div>
-                                    <div className="text-xs text-gray-500">Years Experience</div>
+                                    <div className="text-xs text-gray-500">Años de experiencia</div>
                                 </div>
                                 <div className="w-px h-10 bg-gray-700"></div>
                                 <div>
-                                    <div className="text-2xl font-bold text-white">20+</div>
-                                    <div className="text-xs text-gray-500">Projects Completed</div>
+                                    <div className="text-2xl font-bold text-white">15+</div>
+                                    <div className="text-xs text-gray-500">Proyectos completados</div>
                                 </div>
                                 <div className="w-px h-10 bg-gray-700"></div>
                                 <div>
                                     <div className="text-2xl font-bold text-white">10+</div>
-                                    <div className="text-xs text-gray-500">Happy Clients</div>
+                                    <div className="text-xs text-gray-500">Clientes satisfechos</div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Columna Derecha - Código/IDE */}
-                        <div className="relative animate-fade-in-right">
+                        <div className="relative">
                             {/* Efecto de brillo detrás del código */}
-                            <div className="absolute inset-0 bg-gradient from-blue-500/20 to-cyan-500/20 blur-3xl rounded-3xl"></div>
+                            <div className="absolute inset-0 bg-linear-to-r from-blue-500/20 to-cyan-500/20 blur-3xl rounded-3xl"></div>
 
                             {/* Ventana de código estilo IDE */}
                             <div className="relative bg-slate-900/80 backdrop-blur-sm rounded-xl border border-white/10 shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-500">
@@ -217,41 +213,41 @@ export default function Hero() {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                                             </svg>
                                         </div>
-                                        <span className="text-xs text-gray-400 font-mono">developer.js</span>
+                                        <span className="text-xs text-gray-400 font-mono">desarrolladora.js</span>
                                     </div>
                                     <div className="w-12"></div>
                                 </div>
 
-                                {/* IDE Content - Con efecto de typing */}
+                                {/* IDE Content */}
                                 <div className="p-6">
                                     <pre className="text-xs sm:text-sm font-mono text-gray-300 overflow-x-auto">
                                         <code className="block space-y-1">
-                                            <span className="text-purple-400">const</span> developer = {"{"}
+                                            <span className="text-purple-400">const</span> desarrolladora = {"{"}
                                             <br />
                                             <span className="ml-4">
-                                                <span className="text-blue-400">name</span>: <span className="text-green-400">'{developerData.name}'</span>,
+                                                <span className="text-blue-400">nombre</span>: <span className="text-green-400">'{developerData.name}'</span>,
                                             </span>
                                             <br />
                                             <span className="ml-4">
-                                                <span className="text-blue-400">occupation</span>: <span className="text-green-400">'{developerData.occupation}'</span>,
+                                                <span className="text-blue-400">formación</span>: <span className="text-green-400">'{developerData.occupation}'</span>,
                                             </span>
                                             <br />
                                             <span className="ml-4">
-                                                <span className="text-blue-400">role</span>: <span className="text-green-400">'{developerData.role}'</span>,
+                                                <span className="text-blue-400">rol</span>: <span className="text-green-400">'{developerData.role}'</span>,
                                             </span>
                                             <br />
                                             <span className="ml-4">
-                                                <span className="text-blue-400">location</span>: <span className="text-green-400">'{developerData.location}'</span>,
+                                                <span className="text-blue-400">ubicación</span>: <span className="text-green-400">'{developerData.location}'</span>,
                                             </span>
                                             <br />
                                             <span className="ml-4">
-                                                <span className="text-blue-400">passion</span>: <span className="text-green-400">'{developerData.passion}'</span>
+                                                <span className="text-blue-400">pasión</span>: <span className="text-green-400">'{developerData.passion}'</span>
                                             </span>
                                             <br />
                                             {"}"}
                                             <br />
                                             <br />
-                                            <span className="text-purple-400">export</span> <span className="text-purple-400">default</span> developer;
+                                            <span className="text-purple-400">export</span> <span className="text-purple-400">default</span> desarrolladora;
                                             <div className="inline-block w-2 h-4 bg-blue-400 animate-pulse ml-1"></div>
                                         </code>
                                     </pre>
@@ -261,7 +257,7 @@ export default function Hero() {
                                 <div className="px-4 py-2 bg-slate-800/30 border-t border-white/10 flex items-center justify-between text-xs text-gray-500">
                                     <div className="flex items-center gap-2">
                                         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                                        <span>Ready to code</span>
+                                        <span>Lista para codificar</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <span>TypeScript</span>
@@ -282,38 +278,38 @@ export default function Hero() {
             </section>
 
             {/* About Section */}
-            <section section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50" >
+            <section id="sobre-mi" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-4xl font-bold text-center mb-4 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                        About Me
+                        Sobre mí
                     </h2>
                     <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-                        Passionate about creating innovative solutions through code
+                        Apasionada por crear soluciones innovadoras a través del código
                     </p>
 
                     <div className="grid md:grid-cols-3 gap-8 mb-16">
                         <div className="bg-slate-800/50 rounded-xl p-6 hover:bg-slate-800/70 transition-all">
                             <div className="text-blue-400 mb-4"><CodeIcon /></div>
-                            <h3 className="text-xl font-semibold text-white mb-2">Frontend Development</h3>
+                            <h3 className="text-xl font-semibold text-white mb-2">Desarrollo Frontend</h3>
                             <p className="text-gray-400 text-sm">
-                                I create engaging and responsive user interfaces, turning ideas into smooth, functional websites.
-                                Expertise in React, modern CSS, and UI/UX best practices.
+                                Creo interfaces de usuario atractivas y responsivas, transformando ideas en sitios web funcionales. 
+                                Experta en React, CSS moderno y mejores prácticas de UI/UX.
                             </p>
                         </div>
                         <div className="bg-slate-800/50 rounded-xl p-6 hover:bg-slate-800/70 transition-all">
                             <div className="text-blue-400 mb-4"><ServerIcon /></div>
-                            <h3 className="text-xl font-semibold text-white mb-2">Backend Development</h3>
+                            <h3 className="text-xl font-semibold text-white mb-2">Desarrollo Backend</h3>
                             <p className="text-gray-400 text-sm">
-                                I build scalable APIs and robust server architectures, ensuring seamless communication
-                                between systems and users with security and performance in mind.
+                                Construyo APIs escalables y arquitecturas de servidor robustas, asegurando comunicación fluida 
+                                entre sistemas con seguridad y rendimiento óptimos.
                             </p>
                         </div>
                         <div className="bg-slate-800/50 rounded-xl p-6 hover:bg-slate-800/70 transition-all">
                             <div className="text-blue-400 mb-4"><PaletteIcon /></div>
-                            <h3 className="text-xl font-semibold text-white mb-2">UI Design</h3>
+                            <h3 className="text-xl font-semibold text-white mb-2">Diseño UI</h3>
                             <p className="text-gray-400 text-sm">
-                                I design clean and intuitive user interfaces, crafting visual experiences that are both
-                                beautiful and functional, with attention to detail and user needs.
+                                Diseño interfaces limpias e intuitivas, creando experiencias visuales que combinan estética 
+                                y funcionalidad con atención al detalle.
                             </p>
                         </div>
                     </div>
@@ -321,30 +317,30 @@ export default function Hero() {
                     <div className="bg-slate-800/30 rounded-xl p-8">
                         <div className="flex items-center gap-3 mb-6">
                             <div className="text-blue-400"><GraduationIcon /></div>
-                            <h3 className="text-2xl font-bold text-white">Education</h3>
+                            <h3 className="text-2xl font-bold text-white">Formación Académica</h3>
                         </div>
                         <div className="mb-6">
-                            <h4 className="text-xl font-semibold text-white">Information Technology Engineering</h4>
+                            <h4 className="text-xl font-semibold text-white">Ingeniería en Tecnologías de la Información</h4>
                             <p className="text-blue-400">BUAP - Benemérita Universidad Autónoma de Puebla</p>
-                            <p className="text-gray-400">Currently Studying</p>
+                            <p className="text-gray-400">Cursando actualmente</p>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                            {['Web Development', 'Full-Stack Solutions', 'UI/UX Design', 'API Development', 'Database Design', 'Cloud Services'].map((focus, idx) => (
+                            {focusAreas.map((area, idx) => (
                                 <div key={idx} className="flex items-center gap-2">
                                     <div className="text-blue-400"><HeartIcon /></div>
-                                    <span className="text-gray-400 text-sm">{focus}</span>
+                                    <span className="text-gray-400 text-sm">{area}</span>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
-            </section >
+            </section>
 
             {/* Experience Section */}
-            <section section id="experience" className="py-20 px-4 sm:px-6 lg:px-8" >
+            <section id="experiencia" className="py-20 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-4xl font-bold text-center mb-12 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                        Experience
+                        Tecnologías
                     </h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                         {skills.map((skill, idx) => (
@@ -355,13 +351,13 @@ export default function Hero() {
                         ))}
                     </div>
                 </div>
-            </section >
+            </section>
 
             {/* Projects Section */}
-            <section section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50" >
+            <section id="proyectos" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-4xl font-bold text-center mb-12 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                        Projects
+                        Proyectos Destacados
                     </h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {projects.map((project, idx) => (
@@ -380,36 +376,37 @@ export default function Hero() {
                                         ))}
                                     </div>
                                     <button className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2 text-sm">
-                                        View Page <span><ExternalLinkIcon /></span>
+                                        Ver proyecto <span><ExternalLinkIcon /></span>
                                     </button>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
-            </section >
+            </section>
 
             {/* Contact Section */}
-            <section section id="contact" className="py-20 px-4 sm:px-6 lg:px-8" >
+            <section id="contacto" className="py-20 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto text-center">
                     <h2 className="text-4xl font-bold mb-8 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                        Contact Me
+                        Contacto
                     </h2>
                     <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
-                        I'm currently seeking new opportunities. Feel free to reach out if you have a project in mind or just want to connect!
+                        ¿Tienes un proyecto en mente? ¡Me encantaría escucharte! 
+                        Estoy disponible para nuevas oportunidades y colaboraciones.
                     </p>
 
                     <div className="flex flex-col md:flex-row justify-center gap-8 mb-12">
                         <div className="flex items-center gap-3 justify-center">
                             <div className="text-blue-400"><MailIcon /></div>
-                            <a href="mailto:scarlett@example.com" className="text-gray-300 hover:text-blue-400 transition-colors">
-                                scarlett@example.com
+                            <a href="mailto:scarlett.xochicalef@alumno.buap.mx" className="text-gray-300 hover:text-blue-400 transition-colors">
+                                scarlett.xochicalef@alumno.buap.mx
                             </a>
                         </div>
                         <div className="flex items-center gap-3 justify-center">
                             <div className="text-blue-400"><GithubIcon /></div>
-                            <a href="https://github.com/scarlettitzel" className="text-gray-300 hover:text-blue-400 transition-colors">
-                                github.com/scarlettitzel
+                            <a href="https://github.com/bondleton" className="text-gray-300 hover:text-blue-400 transition-colors">
+                                github.com/bondleton
                             </a>
                         </div>
                         <div className="flex items-center gap-3 justify-center">
@@ -421,7 +418,7 @@ export default function Hero() {
                     </div>
 
                     <div className="border-t border-white/10 pt-8">
-                        <p className="text-gray-500 text-sm">© 2026 Scarlett Itzel. All Rights Reserved.</p>
+                        <p className="text-gray-500 text-sm">© 2026 Scarlett Itzel Xochicale Flores. Todos los derechos reservados.</p>
                     </div>
                 </div>
             </section>
