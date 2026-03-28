@@ -89,8 +89,6 @@ export default function Hero() {
         passion: 'Construyendo soluciones web innovadoras'
     };
 
-    const skills = ['HTML', 'CSS', 'React', 'Node.js', 'Figma', 'FastAPI', 'PHP', 'MySQL'];
-
     const projects = [
         {
             title: 'Ducati Showcase',
@@ -153,7 +151,7 @@ export default function Hero() {
 
                             {/* Descripción */}
                             <p className="text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-                                Desarrollo experiencias digitales modernas con código limpio y diseño innovador. 
+                                Desarrollo experiencias digitales modernas con código limpio y diseño innovador.
                                 Especializada en tecnologías web actuales y soluciones escalables.
                             </p>
 
@@ -278,57 +276,342 @@ export default function Hero() {
             </section>
 
             {/* About Section */}
-            <section id="sobre-mi" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
+            <section id="sobre-mi" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-4xl font-bold text-center mb-4 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                        Sobre mí
-                    </h2>
-                    <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-                        Apasionada por crear soluciones innovadoras a través del código
-                    </p>
 
-                    <div className="grid md:grid-cols-3 gap-8 mb-16">
-                        <div className="bg-slate-800/50 rounded-xl p-6 hover:bg-slate-800/70 transition-all">
-                            <div className="text-blue-400 mb-4"><CodeIcon /></div>
-                            <h3 className="text-xl font-semibold text-white mb-2">Desarrollo Frontend</h3>
-                            <p className="text-gray-400 text-sm">
-                                Creo interfaces de usuario atractivas y responsivas, transformando ideas en sitios web funcionales. 
-                                Experta en React, CSS moderno y mejores prácticas de UI/UX.
+                    {/* Título y descripción principal */}
+                    <div className="text-center mb-12 sm:mb-16">
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                            Sobre mí
+                        </h2>
+                        <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
+                            Apasionada por crear soluciones innovadoras que combinan tecnología, diseño y estrategia de negocio
+                        </p>
+                    </div>
+
+                    {/* Cards de habilidades - 4 columnas en desktop */}
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+
+                        {/* Product Owner Junior */}
+                        <div className="bg-linear-to-br from-blue-500/10 to-cyan-500/10 rounded-xl p-5 sm:p-6 hover:from-blue-500/20 hover:to-cyan-500/20 transition-all border border-blue-500/20 group">
+                            <div className="text-blue-400 mb-3 sm:mb-4 transform group-hover:scale-110 transition-transform">
+                                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Product Owner Junior</h3>
+                            <p className="text-gray-400 text-xs sm:text-sm">
+                                Visión estratégica del producto, gestión de backlog, priorización ágil y comunicación efectiva con stakeholders.
+                            </p>
+                            <div className="mt-3 flex flex-wrap gap-1.5">
+                                <span className="text-[10px] bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded">Scrum</span>
+                                <span className="text-[10px] bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded">Backlog</span>
+                                <span className="text-[10px] bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded">Stakeholders</span>
+                            </div>
+                        </div>
+
+                        {/* Frontend */}
+                        <div className="bg-slate-800/50 rounded-xl p-5 sm:p-6 hover:bg-slate-800/70 transition-all group">
+                            <div className="text-blue-400 mb-3 sm:mb-4 transform group-hover:scale-110 transition-transform">
+                                <CodeIcon />
+                            </div>
+                            <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Desarrollo Frontend</h3>
+                            <p className="text-gray-400 text-xs sm:text-sm">
+                                Creo interfaces de usuario atractivas, transformando ideas en sitios web funcionales. Experta en frameworks, CSS moderno y mejores prácticas de UI/UX.
                             </p>
                         </div>
-                        <div className="bg-slate-800/50 rounded-xl p-6 hover:bg-slate-800/70 transition-all">
-                            <div className="text-blue-400 mb-4"><ServerIcon /></div>
-                            <h3 className="text-xl font-semibold text-white mb-2">Desarrollo Backend</h3>
-                            <p className="text-gray-400 text-sm">
-                                Construyo APIs escalables y arquitecturas de servidor robustas, asegurando comunicación fluida 
-                                entre sistemas con seguridad y rendimiento óptimos.
+
+                        {/* Backend */}
+                        <div className="bg-slate-800/50 rounded-xl p-5 sm:p-6 hover:bg-slate-800/70 transition-all group">
+                            <div className="text-blue-400 mb-3 sm:mb-4 transform group-hover:scale-110 transition-transform">
+                                <ServerIcon />
+                            </div>
+                            <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Desarrollo Backend</h3>
+                            <p className="text-gray-400 text-xs sm:text-sm">
+                                Construyo modelos y bases de datos relacionales así como no relacionales.
                             </p>
                         </div>
-                        <div className="bg-slate-800/50 rounded-xl p-6 hover:bg-slate-800/70 transition-all">
-                            <div className="text-blue-400 mb-4"><PaletteIcon /></div>
-                            <h3 className="text-xl font-semibold text-white mb-2">Diseño UI</h3>
-                            <p className="text-gray-400 text-sm">
-                                Diseño interfaces limpias e intuitivas, creando experiencias visuales que combinan estética 
-                                y funcionalidad con atención al detalle.
+
+                        {/* UI Design */}
+                        <div className="bg-slate-800/50 rounded-xl p-5 sm:p-6 hover:bg-slate-800/70 transition-all group">
+                            <div className="text-blue-400 mb-3 sm:mb-4 transform group-hover:scale-110 transition-transform">
+                                <PaletteIcon />
+                            </div>
+                            <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Diseño UI/UX</h3>
+                            <p className="text-gray-400 text-xs sm:text-sm">
+                                Diseño experiencias enfocadas en la usabilidad, funcionalidad y accesibilidad.
                             </p>
+                        </div>
+
+
+                    </div>
+
+                    {/* Descripción profesional extendida */}
+                    <div className="bg-linear-to-r from-blue-500/5 to-cyan-500/5 rounded-xl p-6 sm:p-8 mb-12 sm:mb-16 border border-white/5">
+                        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                            {/* Avatar o ícono */}
+                            <div className="shrink-0">
+                                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-linear-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                                    <span className="text-3xl sm:text-4xl">👩‍💻</span>
+                                </div>
+                            </div>
+
+                            {/* Descripción */}
+                            <div className="flex-1">
+                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                                    Scarlett Itzel Xochicale Flores
+                                </h3>
+                                <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+                                    Soy una desarrolladora full-stack en formación con una fuerte pasión por la gestión de productos tecnológicos.
+                                    Actualmente curso la licenciatura en Ingeniería en Tecnologías de la Información en la BUAP, donde he desarrollado habilidades técnicas
+                                    y estratégicas para construir soluciones que realmente aporten valor a los usuarios y al negocio.
+                                </p>
+                                <p className="text-gray-400 text-sm leading-relaxed">
+                                    Mi objetivo es crecer como <span className="text-blue-400 font-semibold">Product Owner Junior</span>,
+                                    combinando mi experiencia técnica con visión estratégica para liderar equipos ágiles,
+                                    priorizar funcionalidades basadas en valor y asegurar que cada producto entregue resultados excepcionales.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="bg-slate-800/30 rounded-xl p-8">
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="text-blue-400"><GraduationIcon /></div>
-                            <h3 className="text-2xl font-bold text-white">Formación Académica</h3>
+                    {/* Formación Académica y Áreas de Enfoque */}
+                    <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+
+                        {/* Formación Académica */}
+                        <div className="bg-slate-800/30 rounded-xl p-6 sm:p-8 hover:bg-slate-800/40 transition-all">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="text-blue-400"><GraduationIcon /></div>
+                                <h3 className="text-xl sm:text-2xl font-bold text-white">Formación Académica</h3>
+                            </div>
+                            <div className="mb-6">
+                                <h4 className="text-lg sm:text-xl font-semibold text-white">Ingeniería en Tecnologías de la Información</h4>
+                                <p className="text-blue-400 text-sm sm:text-base">BUAP - Benemérita Universidad Autónoma de Puebla</p>
+                                <p className="text-gray-400 text-sm">2021 - Presente | Cursando actualmente</p>
+                            </div>
+                            <div className="space-y-2">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                                    <span className="text-gray-300 text-sm">Promedio destacado en materias de desarrollo y gestión</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                                    <span className="text-gray-300 text-sm">Participación en proyectos colaborativos con metodologías ágiles</span>
+                                </div>
+                            </div>
                         </div>
-                        <div className="mb-6">
-                            <h4 className="text-xl font-semibold text-white">Ingeniería en Tecnologías de la Información</h4>
-                            <p className="text-blue-400">BUAP - Benemérita Universidad Autónoma de Puebla</p>
-                            <p className="text-gray-400">Cursando actualmente</p>
+
+                        {/* Áreas de Enfoque */}
+                        <div className="bg-slate-800/30 rounded-xl p-6 sm:p-8 hover:bg-slate-800/40 transition-all">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="text-blue-400">
+                                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-xl sm:text-2xl font-bold text-white">Áreas de Enfoque</h3>
+                            </div>
+                            <div className="grid grid-cols-2 gap-3">
+                                {[
+                                    { name: 'Gestión de Productos', icon: '📊' },
+                                    { name: 'Metodologías Ágiles', icon: '🔄' },
+                                    { name: 'Análisis de Requerimientos', icon: '📋' },
+                                    { name: 'UX Research', icon: '🔍' },
+                                    { name: 'Scrum & Kanban', icon: '📈' },
+                                    { name: 'Comunicación Efectiva', icon: '💬' },
+                                    { name: 'Liderazgo de Equipos', icon: '👥' },
+                                    { name: 'Visión Estratégica', icon: '🎯' }
+                                ].map((item, idx) => (
+                                    <div key={idx} className="flex items-center gap-2 p-2 bg-slate-700/30 rounded-lg hover:bg-slate-700/50 transition-all">
+                                        <span className="text-lg">{item.icon}</span>
+                                        <span className="text-gray-300 text-xs sm:text-sm">{item.name}</span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                            {focusAreas.map((area, idx) => (
-                                <div key={idx} className="flex items-center gap-2">
-                                    <div className="text-blue-400"><HeartIcon /></div>
-                                    <span className="text-gray-400 text-sm">{area}</span>
+                    </div>
+
+                    {/* Certificaciones y Cursos - Opcional */}
+                    {/* <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                        {[
+                            { name: 'Scrum Fundamentals', issuer: 'Scrum Study' },
+                            { name: 'Product Management', issuer: 'Google' },
+                            { name: 'Agile Development', issuer: 'IBM' },
+                            { name: 'UI/UX Design', issuer: 'Meta' }
+                        ].map((cert, idx) => (
+                            <div key={idx} className="bg-slate-800/20 rounded-lg p-3 text-center hover:bg-slate-800/40 transition-all">
+                                <div className="text-blue-400 text-lg mb-1">📜</div>
+                                <p className="text-white text-xs sm:text-sm font-medium">{cert.name}</p>
+                                <p className="text-gray-500 text-[10px] sm:text-xs">{cert.issuer}</p>
+                            </div>
+                        ))}
+                    </div> */}
+                </div>
+            </section>
+
+            {/* Experience Section - Tecnologías */}
+            <section id="experiencia" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto">
+
+                    {/* Título y descripción */}
+                    <div className="text-center mb-10 sm:mb-12 md:mb-16">
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                            Tecnologías & Herramientas
+                        </h2>
+                        <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto">
+                            Stack tecnológico que utilizo para construir soluciones robustas y escalables
+                        </p>
+                    </div>
+
+                    {/* Lenguajes de Programación */}
+                    <div className="mb-12 sm:mb-16">
+                        <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                            <div className="w-1 h-6 sm:h-8 bg-linear-to-b from-blue-400 to-cyan-400 rounded-full"></div>
+                            <h3 className="text-xl sm:text-2xl font-bold text-white">Lenguajes de Programación</h3>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+                            {[
+                                { name: 'Java', icon: '☕', level: 'Intermedio' },
+                                { name: 'Python', icon: '🐍', level: 'Intermedio' },
+                                { name: 'JavaScript', icon: '🟡', level: 'Avanzado' },
+                                { name: 'TypeScript', icon: '🔷', level: 'Intermedio' },
+                                { name: 'PHP', icon: '🐘', level: 'Intermedio' }
+                            ].map((tech, idx) => (
+                                <div key={idx} className="group bg-slate-800/50 rounded-xl p-3 sm:p-4 text-center hover:bg-slate-800/70 transition-all hover:scale-105 transform duration-300">
+                                    <div className="text-3xl sm:text-4xl mb-2">{tech.icon}</div>
+                                    <p className="text-white font-semibold text-sm sm:text-base">{tech.name}</p>
+                                    <p className="text-gray-500 text-xs mt-1">{tech.level}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Frontend & Desarrollo Web */}
+                    <div className="mb-12 sm:mb-16">
+                        <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                            <div className="w-1 h-6 sm:h-8 bg-linear-to-b from-blue-400 to-cyan-400 rounded-full"></div>
+                            <h3 className="text-xl sm:text-2xl font-bold text-white">Frontend & Desarrollo Web</h3>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+                            {[
+                                { name: 'HTML5', icon: '🌐', level: 'Avanzado' },
+                                { name: 'CSS3', icon: '🎨', level: 'Avanzado' },
+                                { name: 'Tailwind', icon: '💨', level: 'Básico' },
+                                { name: 'Bootstrap', icon: '🚀', level: 'Intermedio' },
+                                { name: 'React', icon: '⚛️', level: 'Avanzado' },
+                                { name: 'Angular', icon: '🅰️', level: 'Intermedio' },
+                                { name: 'Ionic', icon: '📱', level: 'Intermedio' }
+                            ].map((tech, idx) => (
+                                <div key={idx} className="group bg-slate-800/50 rounded-xl p-3 sm:p-4 text-center hover:bg-slate-800/70 transition-all hover:scale-105 transform duration-300">
+                                    <div className="text-3xl sm:text-4xl mb-2">{tech.icon}</div>
+                                    <p className="text-white font-semibold text-sm sm:text-base">{tech.name}</p>
+                                    <p className="text-gray-500 text-xs mt-1">{tech.level}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Backend & Bases de Datos */}
+                    <div className="mb-12 sm:mb-16">
+                        <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                            <div className="w-1 h-6 sm:h-8 bg-linear-to-b from-blue-400 to-cyan-400 rounded-full"></div>
+                            <h3 className="text-xl sm:text-2xl font-bold text-white">Backend & Bases de Datos</h3>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+                            {[
+                                { name: 'Node.js', icon: '🟢', level: 'Intermedio' },
+                                { name: 'Django', icon: '🎯', level: 'Intermedio' },
+                                { name: 'Laravel', icon: '🔴', level: 'Intermedio', highlight: true },
+                                { name: 'FastAPI', icon: '⚡', level: 'Intermedio' },
+                                { name: 'MySQL', icon: '🐬', level: 'Avanzado' },
+                                { name: 'MySQL Workbench', icon: '🔧', level: 'Avanzado', highlight: true },
+                                { name: 'Firebase', icon: '🔥', level: 'Intermedio' },
+                                { name: 'SQL', icon: '📊', level: 'Avanzado' }
+                            ].map((tech, idx) => (
+                                <div key={idx} className={`group bg-slate-800/50 rounded-xl p-3 sm:p-4 text-center hover:bg-slate-800/70 transition-all hover:scale-105 transform duration-300 ${tech.highlight ? 'border border-blue-500/30' : ''}`}>
+                                    <div className="text-3xl sm:text-4xl mb-2">{tech.icon}</div>
+                                    <p className="text-white font-semibold text-sm sm:text-base">{tech.name}</p>
+                                    <p className="text-gray-500 text-xs mt-1">{tech.level}</p>
+                                    {tech.highlight && (
+                                        <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-[10px] px-1.5 py-0.5 rounded-full">Prácticas</span>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Herramientas & Frameworks */}
+                    <div className="mb-12 sm:mb-16">
+                        <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                            <div className="w-1 h-6 sm:h-8 bg-linear-to-b from-blue-400 to-cyan-400 rounded-full"></div>
+                            <h3 className="text-xl sm:text-2xl font-bold text-white">Herramientas & Frameworks</h3>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+                            {[
+                                { name: 'Git', icon: '📦', level: 'Avanzado' },
+                                { name: 'GitHub', icon: '🐙', level: 'Avanzado' },
+                                { name: 'Figma', icon: '🎨', level: 'Intermedio' },
+                                { name: 'VSCode', icon: '💻', level: 'Avanzado' },
+                                { name: 'Microsoft 365', icon: '📁', level: 'Avanzado' },
+                                { name: 'VMware', icon: '🖥️', level: 'Intermedio' }
+                            ].map((tech, idx) => (
+                                <div key={idx} className="group bg-slate-800/50 rounded-xl p-3 sm:p-4 text-center hover:bg-slate-800/70 transition-all hover:scale-105 transform duration-300">
+                                    <div className="text-3xl sm:text-4xl mb-2">{tech.icon}</div>
+                                    <p className="text-white font-semibold text-sm sm:text-base">{tech.name}</p>
+                                    <p className="text-gray-500 text-xs mt-1">{tech.level}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Metodologías & Especializaciones */}
+                    <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+                        {/* Metodologías */}
+                        <div className="bg-slate-800/30 rounded-xl p-5 sm:p-6">
+                            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                                <span className="text-2xl">🔄</span>
+                                <h3 className="text-lg sm:text-xl font-bold text-white">Metodologías Ágiles</h3>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                                {['Scrum', 'XP', 'Cascada', 'PMBOK', 'Design Thinking'].map((method, idx) => (
+                                    <span key={idx} className="px-3 py-1.5 bg-blue-500/10 text-blue-300 rounded-lg text-xs sm:text-sm hover:bg-blue-500/20 transition-all">
+                                        {method}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Sistemas Operativos */}
+                        <div className="bg-slate-800/30 rounded-xl p-5 sm:p-6">
+                            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                                <span className="text-2xl">💿</span>
+                                <h3 className="text-lg sm:text-xl font-bold text-white">Sistemas Operativos</h3>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                                {['Windows', 'Linux (Ubuntu)', 'Linux (Fedora)', 'Linux (Debian)', 'macOS'].map((os, idx) => (
+                                    <span key={idx} className="px-3 py-1.5 bg-cyan-500/10 text-cyan-300 rounded-lg text-xs sm:text-sm hover:bg-cyan-500/20 transition-all">
+                                        {os}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Áreas de Especialización */}
+                    <div className="mt-8 sm:mt-12 bg-linear-to-r from-blue-500/5 to-cyan-500/5 rounded-xl p-5 sm:p-6 border border-white/5">
+                        <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                            <span className="text-2xl">⭐</span>
+                            <h3 className="text-lg sm:text-xl font-bold text-white">Áreas de Especialización</h3>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
+                            {[
+                                'UI/UX Design', 'Ingeniería Web', 'Desarrollo Web', 'Desarrollo Móvil',
+                                'Control de Calidad', 'Análisis de Datos', 'Desarrollo basado en modelos',
+                                'Integración de microservicios', 'DevOps', 'IoT'
+                            ].map((area, idx) => (
+                                <div key={idx} className="flex items-center gap-1.5 sm:gap-2 p-2 rounded-lg hover:bg-slate-800/50 transition-all">
+                                    <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                                    <span className="text-gray-300 text-xs sm:text-sm">{area}</span>
                                 </div>
                             ))}
                         </div>
@@ -336,22 +619,55 @@ export default function Hero() {
                 </div>
             </section>
 
-            {/* Experience Section */}
-            <section id="experiencia" className="py-20 px-4 sm:px-6 lg:px-8">
+            {/* Prácticas Profesionales */}
+            <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-4xl font-bold text-center mb-12 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                        Tecnologías
-                    </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                        {skills.map((skill, idx) => (
-                            <div key={idx} className="bg-slate-800/50 rounded-xl p-4 text-center hover:bg-slate-800/70 transition-all">
-                                <div className="text-2xl mb-2">{skill}</div>
-                                <p className="text-gray-400 text-sm">{skill}</p>
+                    <div className="bg-linear-to-r from-blue-500/10 to-cyan-500/10 rounded-2xl p-6 sm:p-8 md:p-10 border border-blue-500/20">
+                        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
+                            {/* Logo/Icono */}
+                            <div className="shrink-0">
+                                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-linear-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
+                                    <span className="text-4xl sm:text-5xl">📺</span>
+                                </div>
                             </div>
-                        ))}
+
+                            {/* Contenido */}
+                            <div className="flex-1 text-center md:text-left">
+                                <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-blue-300 text-xs sm:text-sm mb-3">
+                                    Prácticas Profesionales | Actualmente
+                                </div>
+                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                                    ImagenTelevisión - Puebla
+                                </h3>
+                                <p className="text-gray-300 text-sm sm:text-base mb-3">
+                                    Desarrolladora Full-Stack en formación práctica
+                                </p>
+                                <p className="text-gray-400 text-xs sm:text-sm mb-4">
+                                    Desarrollo y mantenimiento de sistemas internos utilizando <span className="text-blue-400 font-semibold">Laravel</span> y
+                                    <span className="text-blue-400 font-semibold"> MySQL Workbench</span>. Participación en el ciclo de vida del desarrollo
+                                    de software, desde la planificación hasta la implementación.
+                                </p>
+                                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                                    <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">Laravel</span>
+                                    <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">MySQL Workbench</span>
+                                    <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">PHP</span>
+                                    <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">Metodologías Ágiles</span>
+                                </div>
+                            </div>
+
+                            {/* Fecha */}
+                            <div className="shrink-0">
+                                <div className="text-center">
+                                    <div className="text-blue-400 font-bold text-lg">2026 - Presente</div>
+                                    <div className="text-gray-500 text-xs">Puebla, México</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
+
+
 
             {/* Projects Section */}
             <section id="proyectos" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
@@ -392,7 +708,7 @@ export default function Hero() {
                         Contacto
                     </h2>
                     <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
-                        ¿Tienes un proyecto en mente? ¡Me encantaría escucharte! 
+                        ¿Tienes un proyecto en mente? ¡Me encantaría escucharte!
                         Estoy disponible para nuevas oportunidades y colaboraciones.
                     </p>
 
