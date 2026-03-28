@@ -127,7 +127,7 @@ export default function Hero() {
 
                 {/* Contenido principal en dos columnas */}
                 <div className="relative z-10 max-w-7xl mx-auto w-full">
-                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center animate-fade-in-left">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center animate-fade-in-left">
 
                         {/* Columna Izquierda - Información personal */}
                         <div className="text-center lg:text-left">
