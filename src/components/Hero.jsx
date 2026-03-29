@@ -431,6 +431,64 @@ export default function Hero() {
                         </div>
                     </div>
 
+                    {/* Prácticas Profesionales  sm:py-16 px-4 sm:px-6 lg:py-12*/}
+                    <section className="py-12 ">
+                        <div className="max-w-7xl mx-auto">
+                            <div className="bg-linear-to-r from-blue-500/10 to-cyan-500/10 rounded-2xl p-6 sm:p-8 md:p-10 border border-blue-500/20">
+                                <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
+                                    {/* Logo/Icono */}
+                                    <div className="shrink-0">
+                                        <div className="w-20 h-20 sm:w-24 sm:h-24 bg-linear-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
+                                            <span className="text-4xl sm:text-5xl">📺</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Contenido */}
+                                    <div className="flex-1 text-center md:text-left">
+                                        <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-blue-300 text-xs sm:text-sm mb-3">
+                                            Prácticas Profesionales | Actualmente
+                                        </div>
+                                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                                            ImagenTelevisión - Puebla
+                                        </h3>
+                                        <p className="text-gray-300 text-sm sm:text-base mb-3">
+                                            Desarrolladora Full-Stack en formación práctica
+                                        </p>
+                                        <p className="text-gray-400 text-xs sm:text-sm mb-4">
+                                            Desarrollo y mantenimiento de sistemas internos utilizando
+                                            <span className="text-blue-400 font-semibold"> Laravel</span>
+                                            . Además de participar en el ciclo de vida del desarrollo de módulos, desde la planificación hasta la implementación.
+
+                                        </p>
+                                        <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">Laravel</span>
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">PHP</span>
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">JavaScript</span>
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">jQuery/AJAX</span>
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">MySQL</span>
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">MySQL Workbench</span>
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">Bootstrap</span>
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">HTML5/CSS3</span>
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">REST APIs</span>
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">XAMPP</span>
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">Laragon</span>
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">VS Code</span>
+                                            <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">Xcode</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Fecha */}
+                                    <div className="shrink-0">
+                                        <div className="text-center">
+                                            <div className="text-blue-400 font-bold text-lg">2026 - Presente</div>
+                                            <div className="text-gray-500 text-xs">Puebla, México</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     {/* Certificaciones y Cursos - Opcional */}
                     {/* <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                         {[
@@ -528,7 +586,7 @@ export default function Hero() {
                                 { name: 'Firebase', icon: '🔥', level: 'Intermedio' },
                                 { name: 'SQL', icon: '📊', level: 'Avanzado' }
                             ].map((tech, idx) => (
-                                <div key={idx} className={`group bg-slate-800/50 rounded-xl p-3 sm:p-4 text-center hover:bg-slate-800/70 transition-all hover:scale-105 transform duration-300 ${tech.highlight ? 'border border-blue-500/30' : ''}`}>
+                                <div key={idx} className={` relative group bg-slate-800/50 rounded-xl p-3 sm:p-4 text-center hover:bg-slate-800/70 transition-all hover:scale-105 transform duration-300 ${tech.highlight ? 'border border-blue-500/30' : ''}`}>
                                     <div className="text-3xl sm:text-4xl mb-2">{tech.icon}</div>
                                     <p className="text-white font-semibold text-sm sm:text-base">{tech.name}</p>
                                     <p className="text-gray-500 text-xs mt-1">{tech.level}</p>
@@ -607,7 +665,7 @@ export default function Hero() {
                             {[
                                 'UI/UX Design', 'Ingeniería Web', 'Desarrollo Web', 'Desarrollo Móvil',
                                 'Control de Calidad', 'Análisis de Datos', 'Desarrollo basado en modelos',
-                                'Integración de microservicios', 'DevOps', 'IoT'
+                                'Integración de microservicios', 'IoT'
                             ].map((area, idx) => (
                                 <div key={idx} className="flex items-center gap-1.5 sm:gap-2 p-2 rounded-lg hover:bg-slate-800/50 transition-all">
                                     <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
@@ -619,62 +677,20 @@ export default function Hero() {
                 </div>
             </section>
 
-            {/* Prácticas Profesionales */}
-            <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
-                <div className="max-w-7xl mx-auto">
-                    <div className="bg-linear-to-r from-blue-500/10 to-cyan-500/10 rounded-2xl p-6 sm:p-8 md:p-10 border border-blue-500/20">
-                        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
-                            {/* Logo/Icono */}
-                            <div className="shrink-0">
-                                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-linear-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
-                                    <span className="text-4xl sm:text-5xl">📺</span>
-                                </div>
-                            </div>
-
-                            {/* Contenido */}
-                            <div className="flex-1 text-center md:text-left">
-                                <div className="inline-block px-3 py-1 bg-blue-500/20 rounded-full text-blue-300 text-xs sm:text-sm mb-3">
-                                    Prácticas Profesionales | Actualmente
-                                </div>
-                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                                    ImagenTelevisión - Puebla
-                                </h3>
-                                <p className="text-gray-300 text-sm sm:text-base mb-3">
-                                    Desarrolladora Full-Stack en formación práctica
-                                </p>
-                                <p className="text-gray-400 text-xs sm:text-sm mb-4">
-                                    Desarrollo y mantenimiento de sistemas internos utilizando <span className="text-blue-400 font-semibold">Laravel</span> y
-                                    <span className="text-blue-400 font-semibold"> MySQL Workbench</span>. Participación en el ciclo de vida del desarrollo
-                                    de software, desde la planificación hasta la implementación.
-                                </p>
-                                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                                    <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">Laravel</span>
-                                    <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">MySQL Workbench</span>
-                                    <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">PHP</span>
-                                    <span className="px-2.5 py-1 bg-slate-800/50 text-blue-300 rounded-lg text-xs">Metodologías Ágiles</span>
-                                </div>
-                            </div>
-
-                            {/* Fecha */}
-                            <div className="shrink-0">
-                                <div className="text-center">
-                                    <div className="text-blue-400 font-bold text-lg">2026 - Presente</div>
-                                    <div className="text-gray-500 text-xs">Puebla, México</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-
             {/* Projects Section */}
             <section id="proyectos" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-4xl font-bold text-center mb-12 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                         Proyectos Destacados
                     </h2>
+
+                    <div className="mb-12 sm:mb-16">
+                        <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                            <div className="w-1 h-6 sm:h-8 bg-linear-to-b from-blue-400 to-cyan-400 rounded-full"></div>
+                            <h3 className="text-xl sm:text-2xl font-bold text-white">Lenguajes de Programación</h3>
+                        </div>
+                    </div>
+                    
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {projects.map((project, idx) => (
                             <div key={idx} className="bg-slate-800/50 rounded-xl overflow-hidden hover:bg-slate-800/70 transition-all">
