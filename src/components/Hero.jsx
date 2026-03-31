@@ -91,10 +91,13 @@ export default function Hero() {
 
     const projects = [
         {
-            title: 'Ducati Showcase',
-            description: 'Aplicación web frontend construida con Angular para explorar arquitectura basada en componentes, enrutamiento y diseño responsivo inspirado en la marca Ducati.',
-            tech: ['Angular', 'SCSS'],
-            image: '🏍️'
+            title: "ConsultDent",
+            description: "Aplicación web frontend construida con Angular para explorar arquitectura basada en componentes.",
+            tech: ["Angular", "Django", "Node"],
+            image: "src/assets/images/ConsultDent.png",
+            category: "Frontend",
+            github: "https://github.com/AlanDaniel055/ClinicaDental.git",
+            demo: "https://consult-dent-web.netlify.app"
         },
     ];
 
@@ -678,41 +681,151 @@ export default function Hero() {
             </section>
 
             {/* Projects Section */}
-            <section id="proyectos" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
+            <section id="proyectos" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-4xl font-bold text-center mb-12 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                        Proyectos Destacados
-                    </h2>
 
-                    <div className="mb-12 sm:mb-16">
-                        <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-                            <div className="w-1 h-6 sm:h-8 bg-linear-to-b from-blue-400 to-cyan-400 rounded-full"></div>
-                            <h3 className="text-xl sm:text-2xl font-bold text-white">Lenguajes de Programación</h3>
-                        </div>
+                    {/* Título y descripción */}
+                    <div className="text-center mb-10 sm:mb-12 md:mb-16">
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                            Proyectos Destacados
+                        </h2>
+                        <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto">
+                            Una colección de mis proyectos más recientes, mostrando habilidades técnicas y creatividad
+                        </p>
                     </div>
-                    
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    {/* Filtros por categoría - Opcional */}
+                    <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
+                        {['Todos', 'Web Apps', 'Frontend', 'Full-Stack', 'Móvil'].map((cat, idx) => (
+                            <button
+                                key={idx}
+                                className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm transition-all duration-300 hover:scale-105
+                    bg-slate-800/50 text-gray-300 hover:bg-blue-500/20 hover:text-blue-400 border border-white/10"
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Grid de proyectos */}
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
                         {projects.map((project, idx) => (
-                            <div key={idx} className="bg-slate-800/50 rounded-xl overflow-hidden hover:bg-slate-800/70 transition-all">
-                                <div className="h-48 bg-linear-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center text-6xl">
-                                    {project.image}
+                            <div
+                                key={idx}
+                                className="group relative bg-slate-800/40 rounded-2xl overflow-hidden 
+                             hover:bg-slate-800/60 transition-all duration-500 
+                             hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/20
+                             border border-white/5 hover:border-blue-500/30"
+                            >
+
+                                {/* Imagen del proyecto */}
+                                <div className="relative h-48 sm:h-52 md:h-56 overflow-hidden">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        onError={(e) => {
+                                            e.target.onerror = null;
+                                            e.target.src = `https://via.placeholder.com/400x300/1e293b/3b82f6?text=${project.title.substring(0, 1)}`;
+                                        }}
+                                    />
+
+                                    {/* Overlay con gradiente */}
+                                    <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+
+                                    {/* Badge de categoría */}
+                                    <div className="absolute top-3 right-3">
+                                        <span className="px-2 py-1 bg-blue-500/90 backdrop-blur-sm rounded-lg text-white text-[10px] sm:text-xs font-medium">
+                                            {project.category || 'Web App'}
+                                        </span>
+                                    </div>
+
+                                    {/* Icono de vista rápida */}
+                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                                        <button className="bg-white/20 backdrop-blur-md rounded-full p-2 sm:p-3 transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                                            <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-                                    <p className="text-gray-400 text-sm mb-4">{project.description}</p>
-                                    <div className="flex flex-wrap gap-2 mb-4">
-                                        {project.tech.map((tech, techIdx) => (
-                                            <span key={techIdx} className="text-xs bg-slate-900/50 px-2 py-1 rounded text-blue-400">
+
+                                {/* Contenido de la card */}
+                                <div className="p-4 sm:p-5 md:p-6">
+                                    {/* Título y descripción */}
+                                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors line-clamp-1">
+                                        {project.title}
+                                    </h3>
+                                    <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed line-clamp-2">
+                                        {project.description}
+                                    </p>
+
+                                    {/* Tecnologías */}
+                                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-5">
+                                        {project.tech.slice(0, 4).map((tech, techIdx) => (
+                                            <span
+                                                key={techIdx}
+                                                className="text-[10px] sm:text-xs bg-slate-900/70 px-2 py-1 rounded-md text-blue-300 
+                                             hover:bg-blue-500/20 transition-all duration-300"
+                                            >
                                                 {tech}
                                             </span>
                                         ))}
+                                        {project.tech.length > 4 && (
+                                            <span className="text-[10px] sm:text-xs text-gray-500">+{project.tech.length - 4}</span>
+                                        )}
                                     </div>
-                                    <button className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2 text-sm">
-                                        Ver proyecto <span><ExternalLinkIcon /></span>
-                                    </button>
+
+                                    {/* Enlaces de acción */}
+                                    <div className="flex items-center justify-between pt-2 border-t border-white/10">
+                                        {/* Botón Demo - Si existe enlace de demo */}
+                                        {project.demo && (
+                                            <a
+                                                href={project.demo}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm group/btn"
+                                            >
+                                                <span>Ver proyecto</span>
+                                                <span className="transform group-hover/btn:translate-x-1 transition-transform">
+                                                    <ExternalLinkIcon />
+                                                </span>
+                                            </a>
+                                        )}
+
+                                        {/* Iconos de redes/github */}
+                                        <div className="flex gap-2">
+                                            <button className="text-gray-500 hover:text-blue-400 transition-colors">
+                                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                                </svg>
+                                            </button>
+                                            <button className="text-gray-500 hover:text-blue-400 transition-colors">
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Efecto de brillo al hover */}
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                                    <div className="absolute inset-0 bg-linear-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0 transform -skew-x-12"></div>
                                 </div>
                             </div>
                         ))}
+                    </div>
+
+                    {/* Botón para ver más proyectos */}
+                    <div className="text-center mt-12 sm:mt-16">
+                        <button className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-slate-800/50 rounded-xl text-white text-sm sm:text-base hover:bg-slate-800/70 transition-all hover:scale-105 border border-white/10">
+                            <span>Ver todos los proyectos</span>
+                            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </section>
