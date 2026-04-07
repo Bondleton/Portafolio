@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import consultDentImg from "../assets/images/ConsultDent.png"
 
 // Iconos simples sin dependencias externas
 const GithubIcon = () => (
@@ -94,7 +95,7 @@ export default function Hero() {
             title: "ConsultDent",
             description: "Aplicación web frontend construida con Angular para explorar arquitectura basada en componentes.",
             tech: ["Angular", "Django", "Node"],
-            image: "src/assets/images/ConsultDent.png",
+            image: consultDentImg,
             category: "Frontend",
             github: "https://github.com/AlanDaniel055/ClinicaDental.git",
             demo: "https://consult-dent-web.netlify.app"
