@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import consultDentImg from "../assets/images/ConsultDent.png"
+import consultDentImg from "/public/images/ConsultDent.png"
 
 // Iconos simples sin dependencias externas
 const GithubIcon = () => (
