@@ -845,20 +845,21 @@ export default function Hero() {
                     <div className="flex flex-col md:flex-row justify-center gap-8 mb-12">
                         <div className="flex items-center gap-3 justify-center">
                             <div className="text-blue-400"><MailIcon /></div>
-                            <a href="mailto:scarlett.xochicalef@alumno.buap.mx" className="text-gray-300 hover:text-blue-400 transition-colors">
+                            <a href="mailto:scarlett.xochicalef@alumno.buap.mx" className="text-gray-300 hover:text-blue-400 transition-colors" target="_blank">
                                 scarlett.xochicalef@alumno.buap.mx
                             </a>
                         </div>
                         <div className="flex items-center gap-3 justify-center">
                             <div className="text-blue-400"><GithubIcon /></div>
-                            <a href="https://github.com/bondleton" className="text-gray-300 hover:text-blue-400 transition-colors">
+                            <a href="https://github.com/bondleton" className="text-gray-300 hover:text-blue-400 transition-colors" target="_blank">
                                 github.com/bondleton
                             </a>
                         </div>
                         <div className="flex items-center gap-3 justify-center">
                             <div className="text-blue-400"><LinkedinIcon /></div>
-                            <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
-                                linkedin.com/in/scarlettitzel
+                            <a href="https://www.linkedin.com/in/scarlett-xochicale-9b023b347" className="text-gray-300 hover:text-blue-400 transition-colors"
+                            target="_blank">
+                                linkedin.com/in/scarlett-xochicale
                             </a>
                         </div>
                     </div>
